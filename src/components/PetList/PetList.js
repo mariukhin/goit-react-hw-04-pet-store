@@ -21,7 +21,18 @@ const PetList = ({ items = [], match, location }) => (
   </ul>
 );
 PetList.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      age: PropTypes.number.isRequired,
+      breed: PropTypes.string.isRequired,
+      gender: PropTypes.string.isRequired,
+      color: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
   match: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
 };
