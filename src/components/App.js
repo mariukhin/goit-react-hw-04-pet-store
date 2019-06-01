@@ -1,24 +1,21 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../pages/HomePage/HomePage';
+import PetsPage from '../pages/PetsPage/PetsPage';
+import Nav from './Nav/Nav';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <div>
+    <Nav />
+
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      {/* <Route path="/pets/:id" component={PetPage} /> */}
+      <Route path="/pets" component={PetsPage} />
+      {/* <Route path="/about" component={AboutPage} /> */}
+      {/* <Route component={NotFoundPage} /> */}
+    </Switch>
+  </div>
+);
 
 export default App;
