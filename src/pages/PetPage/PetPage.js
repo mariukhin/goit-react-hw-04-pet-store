@@ -18,15 +18,15 @@ export default class PetPage extends Component {
     this.setState({ pet: petById(id) });
   }
 
-  handleGoback() {
+  handleGoback = () => {
     const { history, location } = this.props;
 
     if (location.state) {
-      return history.push(location.state.from);
+      history.push(location.state.from);
     }
 
-    return history.push('/pets');
-  }
+    history.push('/pets');
+  };
 
   render() {
     const { pet } = this.state;
