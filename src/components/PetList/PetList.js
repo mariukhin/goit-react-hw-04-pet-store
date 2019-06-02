@@ -4,11 +4,12 @@ import { Link, withRouter } from 'react-router-dom';
 import styles from './PetList.module.css';
 
 const PetList = ({ items = [], match, location }) => (
-  <ul>
+  <ul className={styles.petList}>
     {items.map(item => (
-      <li key={item.id}>
+      <li className={styles.petListItem} key={item.id}>
         <img className={styles.petImage} src={item.image} alt="petimage" />
         <Link
+          className={styles.petLink}
           to={{
             pathname: `${match.path}/${item.id}`,
             state: { from: location },
@@ -33,7 +34,7 @@ PetList.propTypes = {
       description: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  match: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
+  match: PropTypes.shape.isRequired,
+  location: PropTypes.shape.isRequired,
 };
 export default withRouter(PetList);

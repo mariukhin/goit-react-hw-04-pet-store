@@ -1,5 +1,28 @@
+.petList {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  margin: 0;
+  height: 1000px;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+}
+.petListItem {
+  border: 1px solid black;
+  border-radius: 10px;
+  flex-basis: 300px;
+}
 .petImage {
   display: block;
-  width: 400px;
-  height: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 250px;
+  height: 250px;
+}
+.petLink {
+  text-decoration: none;
+  margin-left: 125px;
+  font-size: 18px;
+  line-height: 40px;
 }

@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
-import pets from '../../pets.json';
+import PropTypes from 'prop-types';
 import Pet from '../../components/Pet/Pet';
-
-const getIdFromProps = props => props.match.params.id;
+import { getIdFromProps, petById } from '../../service/helper';
 
 export default class PetPage extends Component {
+  static propTypes = {
+    history: PropTypes.shape.isRequired,
+    location: PropTypes.shape.isRequired,
+  };
+
   state = {
     pet: null,
   };
 
   componentDidMount() {
     const id = getIdFromProps(this.props);
-    const petById = pets.find(item => item.id === id);
-    this.setState({ pet: petById });
+    this.setState({ pet: petById(id) });
   }
 
-  handleGoback = () => {
+  handleGoback() {
     const { history, location } = this.props;
 
     if (location.state) {
       return history.push(location.state.from);
     }
 
-    history.push('/pets');
-  };
+    return history.push('/pets');
+  }
 
   render() {
     const { pet } = this.state;

@@ -1,0 +1,29 @@
+.petContainer {
+  width: 1200px;
+  margin: 0 auto;
+}
+.btnGoBack {
+  margin-top: 30px;
+  padding: 7px;
+  border: 0;
+  background-color: black;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 28px;
+  cursor: pointer;
+}
+.infoContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+.petImage {
+  width: 400px;
+  height: 400px;
+}
+.descriptionContainer {
+  margin-left: 20px;
+}
+p {
+  font-size: 20px;
+  line-height: 22px;
+}

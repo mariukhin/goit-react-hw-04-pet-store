@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './AboutPage.module.css';
 
 const AboutPage = () => (
-  <div>
+  <div className={styles.container}>
     <h1>Fun facts about us</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos,
