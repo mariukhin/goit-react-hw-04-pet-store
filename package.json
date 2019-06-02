@@ -24,7 +24,7 @@
     "lint:fix": "eslint src/**/*.js --fix",
     "lint:format": "prettier src/**/*.{js,css,json} --write",
     "predeploy": "npm run build",
-    "deploy": "mv build/index.html build/200.html && surge -p build -d goit-react-hw-04-pet-store.surge.sh"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
