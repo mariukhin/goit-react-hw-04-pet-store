@@ -6,3 +6,7 @@ export function getIdFromProps(props) {
 export function petById(id) {
   return pets.find(item => item.id === id);
 }
+export const checkId = ({ match: { params } }, petId) => {
+  const idFromMatch = params[petId];
+  return petById(idFromMatch);
+};
