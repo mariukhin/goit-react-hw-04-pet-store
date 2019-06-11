@@ -1,8 +1,11 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 import Loader from './Loader/Loader';
 import Nav from './Nav/Nav';
 import { checkId } from '../service/helper';
+import styles from '../transitions/route.module.css';
+import { bounceTransition, mapStyles } from '../transitions/routeTransition';
 
 const AsyncHomePage = lazy(() =>
   import('../pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
@@ -24,7 +27,13 @@ const App = () => (
   <div>
     <Nav />
     <Suspense fallback={<Loader />}>
-      <Switch>
+      <AnimatedSwitch
+        atEnter={bounceTransition.atEnter}
+        atLeave={bounceTransition.atLeave}
+        atActive={bounceTransition.atActive}
+        mapStyles={mapStyles}
+        className={styles.routeWrapper}
+      >
         <Route path="/" exact component={AsyncHomePage} />
         <Route
           path="/pets/:id"
@@ -40,7 +49,7 @@ const App = () => (
         <Route path="/pets" component={AsyncPetsPage} />
         <Route path="/about" component={AsyncAboutPage} />
         <Redirect to="/" />
-      </Switch>
+      </AnimatedSwitch>
     </Suspense>
   </div>
 );
